@@ -7,9 +7,16 @@ Class.extend = function(subClass, aClass)
 {
     for(aClassMethod in aClass)
     {
-        if(aClassMethod != "prototype")
+        if(aClassMethod != "prototype" )
         {
-            subClass[aClassMethod] = aClass[aClassMethod];
+            if(subClass[aClassMethod] == null)
+            {
+                subClass[aClassMethod] = aClass[aClassMethod];
+            }
+            else
+            {
+                subClass[aClassMethod] = subClass[aClassMethod]; //superfluous, for debugging
+            }
         }
     }
 
